@@ -1,0 +1,180 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.addButton {
+  padding: 12px 24px;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: #0051cc;
+  text-decoration: none;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.select {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.empty a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.cardHeader h2 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin: 0;
+  flex: 1;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cardBody {
+  margin-bottom: 15px;
+}
+
+.cardBody p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.cardBody strong {
+  color: #333;
+  margin-right: 5px;
+}
+
+.cardFooter {
+  display: flex;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.viewButton,
+.editButton,
+.deleteButton {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.viewButton {
+  background-color: #6c757d;
+  color: white;
+}
+
+.editButton {
+  background-color: #0070f3;
+  color: white;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.viewButton:hover,
+.editButton:hover,
+.deleteButton:hover {
+  opacity: 0.8;
+}
