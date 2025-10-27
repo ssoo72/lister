@@ -1,5 +1,5 @@
 .container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -21,6 +21,49 @@
 .headerButtons {
   display: flex;
   gap: 15px;
+  align-items: center;
+}
+
+.viewToggle {
+  display: flex;
+  gap: 5px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.toggleButton {
+  padding: 8px 16px;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.toggleButton:hover {
+  background-color: #e0e0e0;
+}
+
+.toggleButton.active {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bulkDeleteButton {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.bulkDeleteButton:hover {
+  background-color: #d32f2f;
 }
 
 .addButton {
@@ -42,6 +85,7 @@
   gap: 15px;
   margin-bottom: 30px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .select {
@@ -51,6 +95,71 @@
   background-color: white;
   font-size: 14px;
   cursor: pointer;
+}
+
+.columnSelector {
+  position: relative;
+}
+
+.columnSelector summary {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.columnSelector summary::-webkit-details-marker {
+  display: none;
+}
+
+.columnSelector summary::after {
+  content: ' ▼';
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.columnSelector[open] summary::after {
+  content: ' ▲';
+}
+
+.columnCheckboxes {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 5px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 200px;
+}
+
+.columnCheckboxes label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.columnCheckboxes label:hover {
+  background-color: #f5f5f5;
+}
+
+.columnCheckboxes input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.columnCheckboxes input[type="checkbox"]:disabled {
+  cursor: not-allowed;
 }
 
 .loading {
@@ -80,6 +189,170 @@
   font-weight: 600;
 }
 
+/* テーブルスタイル */
+.tableWrapper {
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table th {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  white-space: nowrap;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 12px;
+}
+
+.table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.table th.sortable:hover {
+  background-color: #e9ecef;
+}
+
+.table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 13px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s;
+  height: 36px;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr.selected {
+  background-color: #e3f2fd;
+}
+
+.checkboxCell {
+  width: 35px;
+  text-align: center;
+  padding: 8px 8px !important;
+}
+
+.checkboxCell input[type="checkbox"] {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+.companyName {
+  font-weight: 600;
+  min-width: 150px;
+  max-width: 250px;
+}
+
+.companyName a {
+  color: #0070f3;
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.companyName a:hover {
+  text-decoration: underline;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.priority {
+  color: #ffc107;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: visible !important;
+}
+
+.deadline {
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.actionsCell {
+  width: 120px;
+  white-space: nowrap;
+  padding: 8px 8px !important;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.editButton {
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.editButton:hover {
+  background-color: #0051cc;
+  text-decoration: none;
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
+
+/* カードスタイル（既存） */
+
+/* カードスタイル（既存） */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -145,9 +418,9 @@
   border-top: 1px solid #eee;
 }
 
-.viewButton,
-.editButton,
-.deleteButton {
+.cardFooter .viewButton,
+.cardFooter .editButton,
+.cardFooter .deleteButton {
   flex: 1;
   padding: 8px 12px;
   border-radius: 6px;
@@ -158,23 +431,23 @@
   transition: opacity 0.2s;
 }
 
-.viewButton {
+.cardFooter .viewButton {
   background-color: #6c757d;
   color: white;
 }
 
-.editButton {
+.cardFooter .editButton {
   background-color: #0070f3;
   color: white;
 }
 
-.deleteButton {
+.cardFooter .deleteButton {
   background-color: #dc3545;
   color: white;
 }
 
-.viewButton:hover,
-.editButton:hover,
-.deleteButton:hover {
+.cardFooter .viewButton:hover,
+.cardFooter .editButton:hover,
+.cardFooter .deleteButton:hover {
   opacity: 0.8;
 }
