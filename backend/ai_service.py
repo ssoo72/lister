@@ -29,7 +29,7 @@ class AICompanyInfoService:
         if GEMINI_AVAILABLE and self.api_key:
             try:
                 genai.configure(api_key=self.api_key)
-                self.model = genai.GenerativeModel('gemini-pro')
+                self.model = genai.GenerativeModel('gemini-2.5-flash')
             except Exception as e:
                 print(f"Gemini API の初期化に失敗: {e}")
     
