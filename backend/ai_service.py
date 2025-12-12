@@ -26,10 +26,14 @@ class AICompanyInfoService:
         self.api_key = os.getenv("GEMINI_API_KEY")
         self.model = None
         
+        print(f"DEBUG: GEMINI_API_KEY exists: {self.api_key is not None}")
+        print(f"DEBUG: GEMINI_AVAILABLE: {GEMINI_AVAILABLE}")
+        
         if GEMINI_AVAILABLE and self.api_key:
             try:
                 genai.configure(api_key=self.api_key)
                 self.model = genai.GenerativeModel('gemini-2.5-flash')
+                print("DEBUG: Gemini model initialized successfully")
             except Exception as e:
                 print(f"Gemini API の初期化に失敗: {e}")
     
