@@ -28,7 +28,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "http://localhost:3001",
-        "https://*.onrender.com",  # Render deployment
+        "https://lister-frontend.onrender.com",  # Render deployment frontend
     ],
     allow_origin_regex=r"https://.*\.onrender\.com",  # Renderのサブドメインを許可
     allow_credentials=True,
