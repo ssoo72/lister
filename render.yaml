@@ -1,0 +1,32 @@
+services:
+  # バックエンド (FastAPI)
+  - type: web
+    name: lister-backend
+    env: python
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r ../requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: GEMINI_API_KEY
+        sync: false
+    healthCheckPath: /
+
+  # フロントエンド (Next.js)
+  - type: web
+    name: lister-frontend
+    env: node
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: lister-backend
+          envVarKey: RENDER_EXTERNAL_URL

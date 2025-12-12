@@ -3,8 +3,13 @@ from sqlalchemy.orm import sessionmaker, Session
 from models import Base
 import os
 
-# SQLiteのURL（絶対パスで指定）
-DB_PATH = os.path.join(os.path.dirname(__file__), "job_hunting.db")
+# SQLiteのURL（環境変数または絶対パスで指定）
+# Renderなどのデプロイ環境では /opt/render/project/src にデータを保存
+if os.getenv("RENDER"):
+    DB_PATH = "/opt/render/project/src/job_hunting.db"
+else:
+    DB_PATH = os.path.join(os.path.dirname(__file__), "job_hunting.db")
+
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 # エンジンの作成
