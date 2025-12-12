@@ -25,7 +25,12 @@ app = FastAPI(title="就活管理API", version="1.0.0", lifespan=lifespan)
 # CORS設定（Next.jsからのアクセスを許可）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],  # Next.jsのポート
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "https://*.onrender.com",  # Render deployment
+    ],
+    allow_origin_regex=r"https://.*\.onrender\.com",  # Renderのサブドメインを許可
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
